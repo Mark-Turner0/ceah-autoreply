@@ -1,6 +1,6 @@
 def getDocument(filename):
     try:
-        f = open("responses/"+filename, 'r')
+        f = open("replies/"+filename, 'r')
         strBuilder = ""
         for line in f:
             strBuilder += line
