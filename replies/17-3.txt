@@ -1,7 +1,7 @@
 How familiar are you with the term two-factor authentication (2FA)?
 Your response: Unfamiliar
 
-𝐓𝐰𝐨-𝐟𝐚𝐜𝐭𝐨𝐫 𝐚𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐤𝐞𝐞𝐩𝐬 𝐲𝐨𝐮 𝐬𝐚𝐟𝐞𝐫.
+𝐓𝐰𝐨-𝐟𝐚𝐜𝐭𝐨𝐫 𝐚𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐤𝐞𝐞𝐩𝐬 𝐲𝐨𝐮 𝐬𝐚𝐟𝐞.
 
 It is where you use another way to identify yourself as well as your password. 
 

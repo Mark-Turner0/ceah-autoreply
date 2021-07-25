@@ -5,7 +5,8 @@ from email import message_from_bytes
 from getpass import getpass
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from responder import *
+from responder import question
+import sys
 
 def makePayload(message):
     message = message.decode().strip().split("<br>")[2:-1]
@@ -30,8 +31,13 @@ def reply(message, password):
     mail.ehlo()
     mail.starttls()
 
+    f = open("style.css")
+    style = f.read()
+    f.close()
+    payloadHTML = "<style>" + style + "</style>"
+    payloadHTML += '<body><h1 style="font-size:40px;font-weight:700;">Cyber Essentials at Home </h1><hr>'
     payload = "𝗧𝗛𝗔𝗡𝗞 𝗬𝗢𝗨 𝗙𝗢𝗥 𝗧𝗔𝗞𝗜𝗡𝗚 𝗣𝗔𝗥𝗧 𝗜𝗡 𝗧𝗛𝗘 𝗖𝗬𝗕𝗘𝗥 𝗘𝗦𝗦𝗘𝗡𝗧𝗜𝗔𝗟𝗦 𝗔𝗧 𝗛𝗢𝗠𝗘 𝗜𝗡𝗜𝗧𝗜𝗔𝗟 𝗦𝗨𝗥𝗩𝗘𝗬!\n\n"
-    payloadHTML = "<p><b style='font-size:20px;'>THANK YOU FOR TAKING PART IN THE CYBER ESSENTIALS AT HOME SURVEY!</b><br><br>"
+    payloadHTML += "<p><b style='font-size:20px;'>THANK YOU FOR TAKING PART IN THE CYBER ESSENTIALS AT HOME SURVEY!</b><br><br>"
     payload += "Below are your responses with some brief feedback just for you:\n\n"
     payloadHTML += "Below are your responses with some brief feedback just for you:<br>"
     payload += "P͟l͟e͟a͟s͟e͟ ͟t͟a͟k͟e͟ ͟t͟h͟e͟ ͟t͟i͟m͟e͟ ͟t͟o͟ ͟r͟e͟a͟d͟ ͟t͟h͟e͟m͟, and I will contact you with a follow-up!\n\n"
@@ -46,7 +52,7 @@ def reply(message, password):
     mail.login("mark.turner-7@postgrad.manchester.ac.uk",password)
     final = MIMEMultipart("alternative")
     payload = MIMEText(payload, "plain", "utf-8")
-    print(payload)
+    print(payloadHTML)
     payloadHTML = MIMEText(payloadHTML, "html")
     final.attach(payload)
     final.attach(payloadHTML)
@@ -58,7 +64,11 @@ def reply(message, password):
     return True
 
 def main():
-    password = getpass("Enter password for mark.turner-7@postgrad.manchester.ac.uk:\t")
+    try:
+        password = sys.argv[1]
+    except IndexError:
+        print("Command-line argument must contain password")
+        sys.exit(1)
     while True:
         try:
             f = open("log.txt",'r')
@@ -75,7 +85,7 @@ def main():
             mail.login('mark.turner-7@postgrad.manchester.ac.uk', password)
         except:
             print("Password incorrect. Quiting...")
-            break
+            sys.exit(1)
         mail.list()
         mail.select("inbox")
         _, data = mail.search(None, "SUBJECT","NewresponseforCyberEssentialsatHomeSurvey\r\n")
@@ -98,7 +108,7 @@ def main():
             f.close()
         else:
             print("Error sending email. Stopping program for security.")
-            break
+            sys.exit(1)
         sleep(10)
     del password
 

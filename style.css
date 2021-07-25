@@ -1,0 +1,33 @@
+body {
+	background-color:black;
+	color: white;
+	font-family: Arial, sans-serif;
+	font-size: 23px;
+}
+
+h1, h3, p, ol, a {
+	color: white;
+	text-align: center;
+	list-style-position: inside;
+}
+
+#downloadlink { 
+	background-color: #4CAF50; 
+	padding: 15px 32px; 
+	text-decoration: none; 
+	display: block; 
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+#unique {
+	text-align: center; 
+	color: white; 
+	padding: 15px 32px;
+	display:block;
+	margin-left: 35%;
+	margin-right: 35%;
+	border-width: 2px;
+	border-color: grey;
+	border-style: dashed;
+}
