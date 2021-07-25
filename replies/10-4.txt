@@ -1,0 +1,7 @@
+A firewall...
+Your response: protects you from phishing emails
+
+No, this is what a spam filter can do.
+A firewall is a system which blocks dangerous network traffic, but allows safe traffic.
+
+For more information, go to https://www.ncsc.gov.uk/cyberessentials/advice#section_1

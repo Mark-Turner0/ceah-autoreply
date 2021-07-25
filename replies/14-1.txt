@@ -1,0 +1,5 @@
+How secure would you say your passwords are? 
+Your response: Extremely secure
+
+𝐆𝐨𝐨𝐝! 👍 
+This should hopefully mean that a hacker could not easily guess your password, or successfully run a dictionary attack against it.

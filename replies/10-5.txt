@@ -1,0 +1,6 @@
+A firewall...
+Your response: Not sure
+
+A firewall is a system which blocks dangerous network traffic, but allows safe traffic.
+
+For more information, go to https://www.ncsc.gov.uk/cyberessentials/advice#section_1

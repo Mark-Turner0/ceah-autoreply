@@ -1,0 +1,4 @@
+Do you regularly use two-factor authentication?
+Your response: No
+
+2FA can be vital for your security, especially with important accounts such as your email or bank account. The way you enable 2FA can be very different for different accounts, so follow this guide: https://www.ncsc.gov.uk/cyberaware/home#action-4 to find links that will allow you to set up 2FA for common accounts in just a few clicks!

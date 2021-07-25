@@ -1,0 +1,6 @@
+How secure would you say your passwords are? 
+Your response: Moderately secure
+
+This is good, but why not extremely secure?
+
+To make really strong passwords, follow this guide: https://www.ncsc.gov.uk/blog-post/three-random-words-or-thinkrandom-0 - hackers would have to find ALL three words at once in order to access your account, which could take millions of years to find, even with the fastest computers. 

@@ -1,0 +1,6 @@
+How many characters is your shortest password?
+Your response: Between 8 and 10 characters
+
+This is 𝐦𝐨𝐝𝐞𝐫𝐚𝐭𝐞𝐥𝐲 𝐬𝐞𝐜𝐮𝐫𝐞. A few years ago, this would've been sufficient, but as computers are getting more powerful, passwords nowadays should really be longer than 8 characters, as 8-character passwords can consistently be worked out in less than a day with the right hardware.
+
+To make more complicated passwords, try following this guide: https://www.ncsc.gov.uk/blog-post/three-random-words-or-thinkrandom-0

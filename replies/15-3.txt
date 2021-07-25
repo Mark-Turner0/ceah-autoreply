@@ -1,0 +1,10 @@
+How many passwords do you regularly use?
+Your response: 3 or fewer
+
+You probably already know this, but 𝐭𝐡𝐢𝐬 𝐢𝐬 𝐧𝐨𝐭 𝐠𝐨𝐨𝐝 𝐩𝐫𝐚𝐜𝐭𝐢𝐜𝐞!
+
+If hackers get 𝐨𝐧𝐞 of your passwords, then they have access to 𝐦𝐚𝐧𝐲 of your accounts. You should really be using a different password for each account you have.
+
+They can be hard to remember, so I recommended that you 𝐮𝐬𝐞 𝐚 𝐩𝐚𝐬𝐬𝐰𝐨𝐫𝐝 𝐦𝐚𝐧𝐚𝐠𝐞𝐫 to do this. Password managers can generate and store passwords for 𝐚𝐥𝐥 of your accounts, and you only have to remember 𝐨𝐧𝐞 master password. Make sure this master password is extremely secure!
+
+For more information, visit: https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/password-managers

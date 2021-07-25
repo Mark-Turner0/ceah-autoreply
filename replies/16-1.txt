@@ -1,0 +1,6 @@
+How many characters is your shortest password?
+Your response: Longer than 10 characters
+
+This is 𝐞𝐱𝐭𝐫𝐞𝐦𝐞𝐥𝐲 𝐬𝐞𝐜𝐮𝐫𝐞, as it would take years to crack a password longer than 10 characters with even the fastest computers.
+
+The character length of passwords isn't the only metric of password security, but it's a very good indicator. 

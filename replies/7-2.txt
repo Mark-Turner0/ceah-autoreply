@@ -1,0 +1,8 @@
+Antivirus...
+Your response: pretends to be legitimate but is actually malicious code
+
+No, this is what a trojan is.
+Antivirus is a piece of software that identifies and removes viruses and malware ("malicious code"). 
+It is important to have one installed otherwise passwords and other user data can be stolen.
+
+For more information, go to https://www.ncsc.gov.uk/cyberessentials/advice#section_4

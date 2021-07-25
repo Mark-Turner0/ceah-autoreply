@@ -4,49 +4,72 @@ from smtplib import SMTP
 from email import message_from_bytes
 from getpass import getpass
 from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from responder import *
 
 def makePayload(message):
     message = message.decode().strip().split("<br>")[2:-1]
-    if len(message) != 12:
+    if len(message) != 14:
         print("Parsing error")
         return False
     toSend = []
+    toSendHTML = []
+    count = 1
     for i in range(len(message)):
         toAppend = question(message[i],str(i+5))
         if toAppend == False:
             return False
         elif toAppend != "":
-            toSend.append(toAppend)
-    return "\n".join(toSend)
+            toSend.append("______________________________\n\n𝑄𝑢𝑒𝑠𝑡𝑖𝑜𝑛 "+str(count)+": "+toAppend)
+            toSendHTML.append("<hr><br><i>Question " + str(count) + "</i>: "+toAppend.replace('\n', "<br>"))
+            count += 1
+    return "\n".join(toSend), "<br>".join(toSendHTML)
 
 def reply(message, password):
     mail= SMTP("smtp.office365.com",587)
     mail.ehlo()
     mail.starttls()
-    payload = "𝗧𝗵𝗮𝗻𝗸 𝘆𝗼𝘂 𝗳𝗼𝗿 𝘁𝗮𝗸𝗶𝗻𝗴 𝗽𝗮𝗿𝘁 𝗶𝗻 𝘁𝗵𝗲 𝗖𝘆𝗯𝗲𝗿 𝗘𝘀𝘀𝗲𝗻𝘁𝗶𝗮𝗹𝘀 𝗮𝘁 𝗛𝗼𝗺𝗲 𝗶𝗻𝗶𝘁𝗶𝗮𝗹 𝘀𝘂𝗿𝘃𝗲𝘆!! Below are your responses with some brief feedback:\n\n"
-    payload += "Please take the time to read them, and I will contact you with a follow-up!\n\n"
-    content = makePayload(message.get_payload(decode=True))
+
+    payload = "𝗧𝗛𝗔𝗡𝗞 𝗬𝗢𝗨 𝗙𝗢𝗥 𝗧𝗔𝗞𝗜𝗡𝗚 𝗣𝗔𝗥𝗧 𝗜𝗡 𝗧𝗛𝗘 𝗖𝗬𝗕𝗘𝗥 𝗘𝗦𝗦𝗘𝗡𝗧𝗜𝗔𝗟𝗦 𝗔𝗧 𝗛𝗢𝗠𝗘 𝗜𝗡𝗜𝗧𝗜𝗔𝗟 𝗦𝗨𝗥𝗩𝗘𝗬!\n\n"
+    payloadHTML = "<p><b style='font-size:20px;'>THANK YOU FOR TAKING PART IN THE CYBER ESSENTIALS AT HOME SURVEY!</b><br><br>"
+    payload += "Below are your responses with some brief feedback just for you:\n\n"
+    payloadHTML += "Below are your responses with some brief feedback just for you:<br>"
+    payload += "P͟l͟e͟a͟s͟e͟ ͟t͟a͟k͟e͟ ͟t͟h͟e͟ ͟t͟i͟m͟e͟ ͟t͟o͟ ͟r͟e͟a͟d͟ ͟t͟h͟e͟m͟, and I will contact you with a follow-up!\n\n"
+    payloadHTML += "<u>Please take the time to read them,</u> and I will contact you with a follow-up!</p>"
+    content, contentHTML = makePayload(message.get_payload(decode=True))
     if not content: return False
     payload += content
+    payloadHTML += contentHTML
+
     sender= "mark.turner-7@postgrad.manchester.ac.uk"
     recipient = message["Reply-To"]
     mail.login("mark.turner-7@postgrad.manchester.ac.uk",password)
-    print(payload)
+    final = MIMEMultipart("alternative")
     payload = MIMEText(payload, "plain", "utf-8")
-    payload["To"] = recipient
-    payload["From"] = sender
-    payload["Subject"] = "Reponses to Survey Questions"
-    mail.sendmail(sender,recipient, payload.as_string())
+    print(payload)
+    payloadHTML = MIMEText(payloadHTML, "html")
+    final.attach(payload)
+    final.attach(payloadHTML)
+    final["To"] = recipient
+    final["From"] = sender
+    final["Subject"] = "Reponses to Survey Questions"
+    mail.sendmail(sender,recipient, final.as_string())
     mail.close()
     return True
 
 def main():
     password = getpass("Enter password for mark.turner-7@postgrad.manchester.ac.uk:\t")
     while True:
-        f = open("log.txt",'r')
-        log = [line.strip() for line in f]
-        f.close()
+        try:
+            f = open("log.txt",'r')
+            log = [line.strip() for line in f]
+            f.close()
+        except FileNotFoundError:
+            print("Existing log file not found, creating one...")
+            f = open("log.txt",'x')
+            log = [] 
+            f.close()
+
         mail = IMAP4_SSL('outlook.office365.com')
         try: 
             mail.login('mark.turner-7@postgrad.manchester.ac.uk', password)
@@ -69,7 +92,7 @@ def main():
             sleep(10)
             continue
         if reply(response, password):
-            print("Response sent successfully!")
+            print("\nResponse sent successfully!")
             f = open("log.txt",'a')
             f.write(response["Message-Id"]+"\n")
             f.close()

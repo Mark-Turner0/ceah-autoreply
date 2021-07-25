@@ -1,0 +1,7 @@
+How familiar are you with the term firewall?
+Your response: Unfamiliar
+
+A firewall is a system which blocks dangerous network traffic, but allows safe traffic.
+𝐏𝐥𝐞𝐚𝐬𝐞 𝐮𝐬𝐞 𝐢𝐭!
+
+For more information, go to https://www.ncsc.gov.uk/cyberessentials/advice#section_1

@@ -1,0 +1,6 @@
+How many characters is your shortest password?
+Your response: Fewer than 8 characters
+
+This is 𝐧𝐨𝐭 𝐯𝐞𝐫𝐲 𝐬𝐞𝐜𝐮𝐫𝐞. Any passwords fewer than 8 characters long are easy for hackers to work out. 
+
+To make more complicated passwords, try following this guide: https://www.ncsc.gov.uk/blog-post/three-random-words-or-thinkrandom-0

@@ -1,0 +1,6 @@
+Antivirus...
+Your response: scans files you download for viruses
+
+Yes, antivirus software generally does scan files you download for viruses. However, this is only scratching the surface of what it can do. It can also check the links you are clicking in your web browser, scan your hard drive and USB sticks for existing viruses, and even quarantine or delete viruses and malware ("malicious code") that it finds.
+
+For more information, go to https://www.ncsc.gov.uk/cyberessentials/advice#section_4

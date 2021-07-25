@@ -1,0 +1,6 @@
+How familiar are you with the term access controls?
+Your response: Somewhat familiar
+
+Access controls prevent certain users / accounts from peforming certain actions, such as accessing sensitive files or deleting important files. 
+
+For more information, go to https://www.ncsc.gov.uk/cyberessentials/advice#section_3

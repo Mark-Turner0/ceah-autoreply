@@ -1,6 +1,6 @@
 def getDocument(filename):
     try:
-        f = open("replies/"+filename, 'r')
+        f = open("replies/"+filename+".txt", 'r')
         strBuilder = ""
         for line in f:
             strBuilder += line
@@ -11,21 +11,21 @@ def getDocument(filename):
         return False
 
 def question(content, index):
-    if index == "5" or index == "8" or index == "11": #Very familiar / Somewhat familiar / Unfamiliar question
+    if index == "5" or index == "8" or index == "11" or index == "17": #Very familiar / Somewhat familiar / Unfamiliar question
         which = ["Very familiar","Somewhat familiar","Unfamiliar"]
         if content not in which:
             print("Error parsing question",index)
             return False
-        return getDocument(index+"-"+str(which.index(content)+1)+".html")
+        return getDocument(index+"-"+str(which.index(content)+1)+"")
     
-    elif index == "6" or index == "9" or index == "12": #Yes / No / Not sure question
+    elif index == "6" or index == "9" or index == "12" or index == "18": #Yes / No / Not sure question
         which = ["Yes","No","Not sure"]
         if content not in which:
             if content == "[Not asked]":
                 return ""
             print("Error parsing question",index)
             return False
-        return getDocument(index+"-"+str(which.index(content)+1)+".html")
+        return getDocument(index+"-"+str(which.index(content)+1)+"")
 
     elif index == "13" or index == "14": #Scale questions 1 - 5
         try:
@@ -36,40 +36,40 @@ def question(content, index):
             print("Error parsing question",index)
             return False 
         if content > 4: 
-            return getDocument(index+"-1.html")
+            return getDocument(index+"-1")
         elif content > 2:
-            return getDocument(index+"-2.html")
+            return getDocument(index+"-2")
         else:
-            return getDocument(index+"-3.html")
+            return getDocument(index+"-3")
 
 
     elif index == "7": #Antivirus... 
-        which = ["identifies and removes viruses","pretends to be legitimate but is actually malicious code","protects your IP address","only scans files you download for viruses","not sure"]
+        which = ["identifies and removes viruses","pretends to be legitimate but is actually malicious code","protects your IP address","scans files you download for viruses","not sure"]
         if content not in which:
             if content == "[Not asked]":
                 return ""
             print("Error parsing question",index,content)
             return False
-        return getDocument(index+"-"+str(which.index(content)+1)+".html")
+        return getDocument(index+"-"+str(which.index(content)+1)+"")
     
     elif index == "10": #A firewall...
-        which = ["blocks / allows connections","blocks / allows malware","protects your IP address","protects you from phishing emails","not sure"]
+        which = ["blocks / allows network traffic","blocks / allows malware","protects your IP address","protects you from phishing emails","not sure"]
         if content not in which:
             if content == "[Not asked]":
                 return ""
             print("Error parsing question",index)
             return False
-        return getDocument(index+"-"+str(which.index(content)+1)+".html")
+        return getDocument(index+"-"+str(which.index(content)+1)+"")
 
     elif index == "15":
         try:
             content = int(content)
             if content > 5:
-                return getDocument(index+"-1.html")
+                return getDocument(index+"-1")
             elif content > 3:
-                return getDocument(index+"-2.html")
+                return getDocument(index+"-2")
             else:
-                return getDocument(index+"-3.html")
+                return getDocument(index+"-3")
         except:
             print("Error parsing question",index)
             return False
@@ -79,11 +79,11 @@ def question(content, index):
         try:
             content = int(content)
             if content > 10:
-                return getDocument(index+"-1.html")
+                return getDocument(index+"-1")
             elif content > 7:
-                return getDocument(index+"-2.html")
+                return getDocument(index+"-2")
             else:
-                return getDocument(index+"-3.html")
+                return getDocument(index+"-3")
         except:
             print("Error parsing question",index)
             return False

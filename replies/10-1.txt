@@ -1,0 +1,5 @@
+A firewall...
+Your response: blocks / allows network traffic
+
+𝐂𝐨𝐫𝐫𝐞𝐜𝐭! 👍 
+It does this based on a set of rules. This can help prevent network flooding, port scanning (which can be used as reconnaissance for hackers to try and find vulnerabilities in your network), and other types of external network attacks.

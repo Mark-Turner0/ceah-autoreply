@@ -1,0 +1,6 @@
+Do you regularly use two-factor authentication?
+Your response: Not sure
+
+This is understandable, as a number of online accounts have it enabled by default now. If you've ever received a code by text or by email that you had to type in after entering your password, then you have used two-factor authentication. I recommended that you enable 2FA on 𝐚𝐥𝐥 online accounts that support it.
+
+For more information, visit: https://www.ncsc.gov.uk/guidance/setting-two-factor-authentication-2fa

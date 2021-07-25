@@ -1,0 +1,8 @@
+How familiar are you with the term antivirus?
+Your response: Unfamiliar
+
+Antivirus is a piece of software which detects and removes viruses and often other types of malware (malicious code) from your computer. 
+
+So if you click on a dangerous link in an email, or plug in a USB stick with some malicious code on it, antivirus will try to protect you. 
+
+For more information, go to https://www.ncsc.gov.uk/cyberessentials/advice#section_4

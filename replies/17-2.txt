@@ -1,0 +1,12 @@
+How familiar are you with the term two-factor authentication (2FA)?
+Your response: Somewhat familiar
+
+𝐆𝐨𝐨𝐝! 👍 
+
+𝐓𝐰𝐨-𝐟𝐚𝐜𝐭𝐨𝐫 𝐚𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐤𝐞𝐞𝐩𝐬 𝐲𝐨𝐮 𝐬𝐚𝐟𝐞𝐫.
+
+It is where you use another way to identify yourself as well as your password. 
+
+This is usually done by sending a one-time code by text, by email, or through an app.
+
+For more information, visit: https://www.ncsc.gov.uk/guidance/setting-two-factor-authentication-2fa

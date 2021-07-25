@@ -1,0 +1,5 @@
+Should you always run programs as an Administrator?
+Your response: No
+
+𝐂𝐨𝐫𝐫𝐞𝐜𝐭! 👍   
+Whilst it may be tempting to just run everything as an Administrator, it can be very dangerous. If the program you are running is malicious, then you are giving the hacker all the power of an Administrator. If you ran that program as a normal user, then the hacker would be limited in what they can do.

@@ -1,0 +1,6 @@
+How secure would you say your passwords are? 
+Your response: Not very secure
+
+Cracking insecure passwords is trivial, and once hackers have access to one of your accounts such as your email, gaining access to the others can be very easy.  
+
+To make really strong passwords, follow this guide: https://www.ncsc.gov.uk/blog-post/three-random-words-or-thinkrandom-0
