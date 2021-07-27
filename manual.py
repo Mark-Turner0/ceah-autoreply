@@ -18,17 +18,18 @@ def getHTML(recipient):
     f.close()
     try:
         return html.replace("1234567", codes[recipient]).replace("[LICENSE]", license)
-    except:
+    except Exception:
         print("No unique code found for", recipient)
         return False
 
 
 def reply(recipient, password):
-    mail= SMTP("smtp.office365.com",587)
+    mail = SMTP("smtp.office365.com", 587)
     mail.ehlo()
     mail.starttls()
     payload = getHTML(recipient)
-    if not payload: return False
+    if not payload:
+        return False
     sender = "mark.turner-7@postgrad.manchester.ac.uk"
     mail.login(sender, password)
     print(payload)
@@ -36,11 +37,12 @@ def reply(recipient, password):
     payload["To"] = recipient
     payload["From"] = sender
     payload["Subject"] = "The Cyber Essentials at Home tool is ready!"
-    mail.sendmail(sender,recipient, payload.as_string())
+    mail.sendmail(sender, recipient, payload.as_string())
     mail.close()
     print(payload)
     print("Email sent!")
     return True
+
 
 if __name__ == "__main__":
     try:
@@ -49,6 +51,6 @@ if __name__ == "__main__":
     except IndexError:
         print("Command-line argumemnt must include recipient's email address")
         sys.exit(1)
-    except smtplib.SMTPAuthenticationError:
+    except SMTP.SMTPAuthenticationError:
         print("Password incorrect!")
         sys.exit(1)

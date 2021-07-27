@@ -2,11 +2,11 @@ from time import sleep
 from imaplib import IMAP4_SSL
 from smtplib import SMTP
 from email import message_from_bytes
-from getpass import getpass
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from responder import question
 import sys
+
 
 def makePayload(message):
     message = message.decode().strip().split("<br>")[2:-1]
@@ -17,17 +17,18 @@ def makePayload(message):
     toSendHTML = []
     count = 1
     for i in range(len(message)):
-        toAppend = question(message[i],str(i+5))
-        if toAppend == False:
+        toAppend = question(message[i], str(i + 5))
+        if toAppend is False:
             return False
         elif toAppend != "":
-            toSend.append("______________________________\n\n𝑄𝑢𝑒𝑠𝑡𝑖𝑜𝑛 "+str(count)+": "+toAppend)
-            toSendHTML.append("<hr><br><i>Question " + str(count) + "</i>: "+toAppend.replace('\n', "<br>"))
+            toSend.append("______________________________\n\n𝑄𝑢𝑒𝑠𝑡𝑖𝑜𝑛 " + str(count) + ": " + toAppend)
+            toSendHTML.append("<hr><br><i>Question " + str(count) + "</i>: " + toAppend.replace('\n', "<br>"))
             count += 1
     return "\n".join(toSend), "<br>".join(toSendHTML)
 
+
 def reply(message, password):
-    mail= SMTP("smtp.office365.com",587)
+    mail = SMTP("smtp.office365.com", 587)
     mail.ehlo()
     mail.starttls()
 
@@ -43,13 +44,14 @@ def reply(message, password):
     payload += "P͟l͟e͟a͟s͟e͟ ͟t͟a͟k͟e͟ ͟t͟h͟e͟ ͟t͟i͟m͟e͟ ͟t͟o͟ ͟r͟e͟a͟d͟ ͟t͟h͟e͟m͟, and I will contact you with a follow-up!\n\n"
     payloadHTML += "<u>Please take the time to read them,</u> and I will contact you with a follow-up!</p>"
     content, contentHTML = makePayload(message.get_payload(decode=True))
-    if not content: return False
+    if not content:
+        return False
     payload += content
     payloadHTML += contentHTML
 
-    sender= "mark.turner-7@postgrad.manchester.ac.uk"
+    sender = "mark.turner-7@postgrad.manchester.ac.uk"
     recipient = message["Reply-To"]
-    mail.login("mark.turner-7@postgrad.manchester.ac.uk",password)
+    mail.login("mark.turner-7@postgrad.manchester.ac.uk", password)
     final = MIMEMultipart("alternative")
     payload = MIMEText(payload, "plain", "utf-8")
     print(payloadHTML)
@@ -59,9 +61,10 @@ def reply(message, password):
     final["To"] = recipient
     final["From"] = sender
     final["Subject"] = "Reponses to Survey Questions"
-    mail.sendmail(sender,recipient, final.as_string())
+    mail.sendmail(sender, recipient, final.as_string())
     mail.close()
     return True
+
 
 def main():
     try:
@@ -71,24 +74,24 @@ def main():
         sys.exit(1)
     while True:
         try:
-            f = open("log.txt",'r')
+            f = open("log.txt", 'r')
             log = [line.strip() for line in f]
             f.close()
         except FileNotFoundError:
             print("Existing log file not found, creating one...")
-            f = open("log.txt",'x')
-            log = [] 
+            f = open("log.txt", 'x')
+            log = []
             f.close()
 
         mail = IMAP4_SSL('outlook.office365.com')
-        try: 
+        try:
             mail.login('mark.turner-7@postgrad.manchester.ac.uk', password)
-        except:
+        except Exception:
             print("Password incorrect. Quiting...")
             sys.exit(1)
         mail.list()
         mail.select("inbox")
-        _, data = mail.search(None, "SUBJECT","NewresponseforCyberEssentialsatHomeSurvey\r\n")
+        _, data = mail.search(None, "SUBJECT", "NewresponseforCyberEssentialsatHomeSurvey\r\n")
         try:
             latest = data[0].split()[-1]
         except IndexError:
@@ -103,8 +106,8 @@ def main():
             continue
         if reply(response, password):
             print("\nResponse sent successfully!")
-            f = open("log.txt",'a')
-            f.write(response["Message-Id"]+"\n")
+            f = open("log.txt", 'a')
+            f.write(response["Message-Id"] + "\n")
             f.close()
         else:
             print("Error sending email. Stopping program for security.")
@@ -112,5 +115,6 @@ def main():
         sleep(10)
     del password
 
+
 if __name__ == '__main__':
-	main()
+    main()
