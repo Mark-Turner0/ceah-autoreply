@@ -1,2 +1,4 @@
 Do you have antivirus active on your computer?
 Your response: No
+
+⚠️ You definitely need to install and enable one! ⚠️

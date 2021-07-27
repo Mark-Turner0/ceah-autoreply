@@ -61,7 +61,7 @@ def question(content, index):
             return False
         return getDocument(index + "-" + str(which.index(content) + 1) + "")
 
-    elif index == "15":
+    elif index == "15":  # How many passwords do you regularly use?
         try:
             content = int(content)
             if content > 5:
@@ -74,7 +74,7 @@ def question(content, index):
             print("Error parsing question", index)
             return False
 
-    elif index == "16":  # How many characters is your longest password?
+    elif index == "16":  # How many characters is your shortest password?
         try:
             content = int(content)
             if content > 10:

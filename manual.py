@@ -1,7 +1,7 @@
 from getpass import getpass
 import sys
 import json
-from smtplib import SMTP
+from smtplib import SMTP, SMTPAuthenticationError
 from email.mime.text import MIMEText
 
 
@@ -17,7 +17,7 @@ def getHTML(recipient):
     codes = json.load(f)
     f.close()
     try:
-        return html.replace("1234567", codes[recipient]).replace("[LICENSE]", license)
+        return html.replace("1234567890", codes[recipient]).replace("[LICENSE]", license)
     except Exception:
         print("No unique code found for", recipient)
         return False
@@ -51,6 +51,6 @@ if __name__ == "__main__":
     except IndexError:
         print("Command-line argumemnt must include recipient's email address")
         sys.exit(1)
-    except SMTP.SMTPAuthenticationError:
+    except SMTPAuthenticationError:
         print("Password incorrect!")
         sys.exit(1)

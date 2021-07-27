@@ -1,6 +1,6 @@
 FROM python:latest
 
-WORKDIR /ceah-backend
+WORKDIR /ceah-autoreply
 
 COPY ./ .
 

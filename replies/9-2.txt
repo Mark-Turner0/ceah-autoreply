@@ -1,2 +1,4 @@
 Do you have a firewall on your computer?
 Your response: No
+
+Firewalls can help keep you safe!
