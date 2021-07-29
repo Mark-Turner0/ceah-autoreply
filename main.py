@@ -4,6 +4,7 @@ from smtplib import SMTP
 from email import message_from_bytes
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from socket import gaierror
 from responder import question
 import sys
 
@@ -84,7 +85,7 @@ def main():
             f.close()
         try:
             mail = IMAP4_SSL('outlook.office365.com')
-        except socket.gaierror:
+        except gaierror:
             continue
         try:
             mail.login('mark.turner-7@postgrad.manchester.ac.uk', password)
