@@ -82,8 +82,10 @@ def main():
             f = open("log.txt", 'x')
             log = []
             f.close()
-
-        mail = IMAP4_SSL('outlook.office365.com')
+        try:
+            mail = IMAP4_SSL('outlook.office365.com')
+        except socket.gaierror:
+            continue
         try:
             mail.login('mark.turner-7@postgrad.manchester.ac.uk', password)
         except Exception:
