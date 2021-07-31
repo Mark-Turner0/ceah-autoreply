@@ -6,7 +6,7 @@ from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 
 
-def getHTML(recipient):
+def getHTML():
     f = open("index.html")
     html = f.read()
     f = open("style.css")
@@ -23,7 +23,7 @@ def reply(recipient, password):
     mail = SMTP("smtp.office365.com", 587)
     mail.ehlo()
     mail.starttls()
-    payload, img = getHTML(recipient)
+    payload, img = getHTML()
     if not payload:
         return False
     sender = "mark.turner-7@postgrad.manchester.ac.uk"
