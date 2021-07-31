@@ -1,5 +1,5 @@
 from time import sleep
-from imaplib import IMAP4_SSL
+from imaplib import IMAP4_SSL, error
 from smtplib import SMTP
 from email import message_from_bytes
 from email.mime.text import MIMEText
@@ -94,7 +94,10 @@ def main():
             sys.exit(1)
         mail.list()
         mail.select("inbox")
-        _, data = mail.search(None, "SUBJECT", "NewresponseforCyberEssentialsatHomeSurvey\r\n")
+        try:
+            _, data = mail.search(None, "SUBJECT", "NewresponseforCyberEssentialsatHomeSurvey\r\n")
+        except error:
+            continue
         try:
             latest = data[0].split()[-1]
         except IndexError:
