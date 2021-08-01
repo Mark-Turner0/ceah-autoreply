@@ -44,7 +44,7 @@ def question(content, index):
             return getDocument(index + "-3")
 
     elif index == "7":  # Antivirus...
-        which = ["identifies and removes viruses", "pretends to be legitimate but is actually malicious code", "protects your IP address", "scans files you download for viruses", "not sure"]
+        which = ["identifies and removes viruses", "pretends to be legitimate but is actually malicious code", "protects your IP address", "only scans files you download for viruses", "not sure"]
         if content not in which:
             if content == "[Not asked]":
                 return ""
